@@ -7,17 +7,19 @@ void setup() {
 
 void draw() {
   background(0);
-  for ( int i = particles.size() - 1; i>=0; i--)
+
+  for ( int j = particles.size() - 1; j>=0; j--)
   {
-    Particle p = particles.get(i);
+    Particle p = particles.get(j);
     p.update();
     p.display();
 
 
     if ( p.position.y > 410)
     {
-      particles.remove(i);
+      particles.remove(j);
     }
+
   }
 
 
