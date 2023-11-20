@@ -1,17 +1,27 @@
 ArrayList<Particle> particles;
 
-void setup(){
- size(400,400);
- particles = new ArrayList<Particle>();
+void setup() {
+  size(400, 400);
+  particles = new ArrayList<Particle>();
 }
 
-void draw(){
+void draw() {
   background(0);
-  for (int i = 0; i < particles.size(); i++){
-    particles.get(i).update();
-    particles.get(i).display();
+  for ( int i = particles.size() - 1; i>=0; i--)
+  {
+    Particle p = particles.get(i);
+    p.update();
+    p.display();
+
+
+    if ( p.position.y > 410)
+    {
+      particles.remove(i);
+    }
   }
-  if(mousePressed == true) {
+
+
+  if (mousePressed == true) {
     particles.add(new Particle(mouseX, mouseY));
   }
 }
